@@ -1,4 +1,4 @@
-FROM golang:1.24.5-alpine3.22
+FROM golang:1.25.5-alpine3.23
 
 WORKDIR /scripts
 COPY ./scripts/exec.sh .

@@ -1,11 +1,11 @@
-FROM alpine:3.22.1
+FROM alpine:3.23.2
 
 RUN apk add --no-cache curl
 
 WORKDIR /usr/local
-RUN PINACT_VERSION=3.3.2 && \
-    ACTIONLINT_VERSION=1.7.7 && \
-    GHALINT_VERSION=1.5.3 && \
+RUN PINACT_VERSION=3.8.0 && \
+    ACTIONLINT_VERSION=1.7.10 && \
+    GHALINT_VERSION=1.5.4 && \
     ARCH=$(uname -m) && \
     echo "ARCH=$ARCH" && \
     if test "$ARCH" = "aarch64" || test "$ARCH" = "arm64"; then \

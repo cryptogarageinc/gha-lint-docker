@@ -16,7 +16,9 @@ jobs:
     timeout-minutes: 90
     permissions:
       contents: read
-      pull-requests: write
+      packages: write
+      attestations: write
+      id-token: write
     strategy:
       matrix:
         image-type: ['full', 'light']
@@ -37,7 +39,7 @@ jobs:
         uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
         with:
           # list of Docker images to use as base name for tags
-          images: name=${{env.IMAGE_BASE_PATH}}/${{ matrix.image-name }}
+          images: ${{env.IMAGE_BASE_PATH}}/${{ matrix.image-name }}
           # generate Docker tags based on the following events/attributes
           tags: |
             type=ref,event=tag
@@ -52,8 +54,8 @@ jobs:
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
           registry: ghcr.io
-          username: ${{ secrets.CR_USER_NAME }}
-          password: ${{ secrets.CR_PAT }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
         with:
