@@ -24,6 +24,6 @@ tasks:
       - docker run --rm -i -v {{.TASK_DIR}}/.hadolint.yml:/.config/hadolint.yaml ghcr.io/hadolint/hadolint < light.dockerfile
   format:
     vars:
-      YAMLFMT_VERSION: v0.17.2
+      YAMLFMT_VERSION: latest
     cmds:
       - go run github.com/google/yamlfmt/cmd/yamlfmt@{{.YAMLFMT_VERSION}}
