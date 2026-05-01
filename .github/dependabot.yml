@@ -6,7 +6,8 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: '.github'
+    directories:
+      - '.github/**/*'
     schedule:
       interval: weekly
     cooldown:
