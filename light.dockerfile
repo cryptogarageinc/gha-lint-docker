@@ -3,7 +3,7 @@ FROM alpine:3.23.4
 RUN apk add --no-cache curl
 
 WORKDIR /usr/local
-RUN PINACT_VERSION=3.9.2 && \
+RUN PINACT_VERSION=4.1.0 && \
     ACTIONLINT_VERSION=1.7.12 && \
     GHALINT_VERSION=1.5.6 && \
     ARCH=$(uname -m) && \
