@@ -15,7 +15,7 @@ tasks:
       ACTIONLINT_VERSION: latest
       GHALINT_VERSION: latest
     cmds:
-      - go run github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@{{.PINACT_VERSION}} run
+      - go run github.com/suzuki-shunsuke/pinact/v4/cmd/pinact@{{.PINACT_VERSION}} run
       - go run github.com/rhysd/actionlint/cmd/actionlint@{{.ACTIONLINT_VERSION}}
       - go run github.com/suzuki-shunsuke/ghalint/cmd/ghalint@{{.GHALINT_VERSION}} run
   hadolint:
